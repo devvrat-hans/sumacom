@@ -3,13 +3,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 1.5em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%; /* Ensure it spans the full width */
-    top: 0; /* Position it at the top */
-    z-index: 1000; /* Ensure it is above other content */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 100%; 
+    top: 0;
+    box-sizing: border-box;
 }
 
 .nav-left {
@@ -24,13 +22,13 @@ nav {
 }
 
 .nav-left .logo {
-    max-width: 50px;
+    max-width: 70px;
     margin-right: 1em;
 }
 
 .nav-left h1 {
     color: #000;
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 0;
     text-decoration: none;
 }
@@ -40,6 +38,7 @@ nav a {
 }
 
 .nav-links {
+    font-size: 1.2em;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -64,7 +63,7 @@ nav a {
 .nav-right {
     display: flex;
     align-items: center;
-    flex-shrink: 0; /* Prevent the search box from shrinking */
+    flex-shrink: 0; 
 }
 
 .nav-right input[type="text"] {
@@ -73,9 +72,9 @@ nav a {
     border-radius: 7px;
     margin-right: 0.5em;
     transition: border-color 0.3s ease;
-    max-width: 200px; /* Set a maximum width for the search box */
-    width: 100%; /* Ensure it takes up available space */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    max-width: 300px; 
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-right input[type="text"]:focus {
