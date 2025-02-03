@@ -3,19 +3,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.querySelector('.nav-right button');
 
     function performSearch() {
-        const query = searchInput.value.trim();
-        if (query) {
-            // Perform the search operation (e.g., redirect to a search results page)
-            console.log(`Searching for: ${query}`);
-            // Example: window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        const query = searchInput.value.trim().toLowerCase();
+        const paragraphs = document.querySelectorAll('p');
+        let found = false;
+
+        paragraphs.forEach(paragraph => {
+            if (paragraph.textContent.toLowerCase().includes(query)) {
+                paragraph.style.backgroundColor = 'yellow';
+                found = true;
+            } else {
+                paragraph.style.backgroundColor = '';
+            }
+        });
+
+        if (!found) {
+            alert('No results found');
         }
     }
 
-    searchButton.addEventListener('click', performSearch);
+    searchButton.addEventListener('click', function() {
+        performSearch();
+    });
 
-    searchInput.addEventListener('keypress', function(event) {
+    searchInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             performSearch();
         }
+    });
+
+    searchInput.addEventListener('focus', function() {
+        searchInput.value = '';
+        const paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(paragraph => {
+            paragraph.style.backgroundColor = '';
+        });
     });
 });
