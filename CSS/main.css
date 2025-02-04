@@ -5,6 +5,9 @@
 @import url('services.css');
 @import url('projects.css');
 @import url('about.css');
+@import url('awards.css');
+@import url('contact.css');
+@import url('index.css');
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -13,3 +16,4 @@ body {
     margin: 0;
     padding: 0;
 }
+

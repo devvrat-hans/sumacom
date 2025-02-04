@@ -1,0 +1,148 @@
+#hero {
+    background-color: #f4f4f4;
+    padding: 100px 0; /* Ensure enough padding to avoid overlap */
+    text-align: center;
+}
+
+#banner {
+    background-color: #c4e3c6;
+    color: #004d40;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-content .stat {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.banner-content .stat h3 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.banner-content .stat p {
+    font-size: 1.2em;
+}
+
+#gallery {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.gallery-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery-content img {
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+#news {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.news-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.news-content article {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    flex: 1;
+    max-width: 45%;
+}
+
+.news-content article h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.news-content article p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.news-content article a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.news-content article a:hover {
+    text-decoration: underline;
+}
+
+#commitment {
+    padding: 50px 0;
+    text-align: center;
+}
+
+#commitment p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    color: #666;
+}
+
+#testimonials {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.testimonial p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+#get-started {
+    padding: 50px 0;
+    text-align: center;
+}
+
+#get-started .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#get-started .btn:hover {
+    background-color: #45a049;
+}

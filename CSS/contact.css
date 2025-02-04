@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#contact {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin-top: 80px; /* Add margin to avoid navbar overlap */
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contact-info, .contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 40px;
+    text-align: left;
+}
+
+.contact-info h3, .contact-form h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.contact-info p, .contact-form label {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.contact-info a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px; /* Add space between label and input */
+}
+
+.contact-form input, .contact-form textarea {
+    width: calc(100% - 20px); /* Ensure the input fields fit within the card */
+    padding: 10px;
+    margin-bottom: 20px; /* Add space between input fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start; /* Align the button to the start of the form */
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
