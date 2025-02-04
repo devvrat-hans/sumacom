@@ -8,6 +8,8 @@ nav {
     width: 100%; 
     top: 0;
     box-sizing: border-box;
+    position: fixed;
+    z-index: 1000;
 }
 
 .nav-left {
@@ -28,7 +30,7 @@ nav {
 
 .nav-left h1 {
     color: #000;
-    font-size: 2em;
+    font-size: 1.9em;
     margin: 0;
     text-decoration: none;
 }
@@ -54,48 +56,20 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
+    padding-bottom: 0.5em; /* Add padding to make space for the border */
 }
 
 .nav-links li a:hover {
     color: #4CAF50;
-    transform: scale(1.1); /* Pop-out effect */
+    transform: scale(1.1); 
+}
+
+.nav-links li a.active {
+    border-bottom: 3px solid #4CAF50;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
     flex-shrink: 0; 
-}
-
-.nav-right input[type="text"] {
-    padding: 0.75em; 
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    margin-right: 0.5em;
-    transition: border-color 0.3s ease;
-    max-width: 400px; 
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 1em; 
-}
-
-.nav-right input[type="text"]:focus {
-    border-color: #4CAF50;
-}
-
-.nav-right button {
-    background-color: #4CAF50;
-    border: 1px solid #4CAF50;
-    color: #fff;
-    padding: 0.75em 1.5em; 
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-    font-size: 1em;
-}
-
-.nav-right button:hover {
-    background-color: #388E3C;
-    border-color: #388E3C;
-    transform: scale(1.04);
 }
