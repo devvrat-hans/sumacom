@@ -1,6 +1,6 @@
 # Sumacom Consultancy Website
 
-Welcome to the official repository of the Sumacom Consultancy website! 🚀 This project serves as the digital presence for Sumacom, a leading consultancy offering top-tier services to clients around the world.
+Welcome to the official repository of the Sumacom Consultancy website! This project serves as the digital presence for Sumacom, a leading consultancy offering top-tier services to clients around the world.
 
 Live Website: [https://sumacom.netlify.app/](https://sumacom.netlify.app/) [Temporarily hosted here]
 
