@@ -97,98 +97,41 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile Styles */
 @media screen and (max-width: 768px) {
-    #awards {
-        padding: 30px 0;
-        margin-top: 60px;
+    #contact {
+        padding-top: 100px;
+        margin-top: 0;
     }
 
-    .awards-content {
+    .contact-content {
         padding: 0 15px;
     }
 
-    .awards-content h2 {
+    .contact-content h2 {
         font-size: 2em;
         margin-bottom: 30px;
     }
 
-    .award-card {
-        flex-direction: column;
-        width: 95%;
-        padding: 20px;
-        margin: 20px auto;
-    }
-
-    .award-image-container {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-    }
-
-    .award-image {
-        max-width: 80%;
-        height: auto;
-    }
-
-    .award-info {
-        padding: 0;
-        text-align: center;
-    }
-
-    .award-info h3 {
+    .contact-content h3 {
         font-size: 1.5em;
-        margin-bottom: 12px;
+        margin-bottom: 30px;
     }
 
-    .award-info p {
-        font-size: 1em;
-        margin-bottom: 12px;
-        text-align: justify;
-        padding: 0 5px;
+    .contact-info, 
+    .contact-form {
+        padding: 20px;
     }
 
-    .award-info ul {
-        text-align: left;
-        padding-left: 25px;
-    }
-
-    .award-info ul li {
-        font-size: 1em;
-        margin-bottom: 8px;
-    }
-}
-
-/* Extra Small Devices */
-@media screen and (max-width: 480px) {
-    .award-card {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .awards-content h2 {
-        font-size: 1.8em;
-    }
-
-    .award-info h3 {
-        font-size: 1.3em;
-    }
-
-    .award-image {
-        max-width: 90%;
-    }
-}
-
-@media (hover: none) {
-    .contact-info a {
-        text-decoration: underline;
-    }
-}
-
-@media screen and (max-width: 768px) {
     .contact-form button {
         width: 100%;
         padding: 15px 30px;
         font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-content h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
     }
 }

@@ -153,24 +153,39 @@
     }
 
     #banner {
-        padding: 30px 0;
+        padding: 30px 15px;
     }
 
     .banner-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
     }
 
     .banner-content .stat {
-        margin: 10px 0;
+        position: relative;
+        margin: 0;
+        padding: 15px 0;
+    }
+
+    .banner-content .stat:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1);
     }
 
     .banner-content .stat h3 {
         font-size: 2em;
+        margin-bottom: 8px;
     }
 
     .banner-content .stat p {
         font-size: 1.1em;
+        color: #004d40;
     }
 
     .news-content article {
@@ -197,6 +212,10 @@
 
 /* Extra Small Devices */
 @media screen and (max-width: 480px) {
+    .banner-content .stat:not(:last-child)::after {
+        width: 80%;
+    }
+
     .banner-content .stat h3 {
         font-size: 1.8em;
     }
