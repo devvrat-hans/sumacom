@@ -122,5 +122,88 @@
 }
 
 .projects-content > h2::after {
-    display: none; /* This will remove the green underline */
+    display: none; 
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    #projects {
+        padding: 30px 0;
+        margin-top: 60px;
+    }
+
+    .projects-content {
+        padding: 0 15px;
+    }
+
+    .projects-content > h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .project-section {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .project-section > h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    .project-section > p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+
+    .project-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .project-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .project-card h4 {
+        font-size: 1.2em;
+        margin: 15px 0 10px 0;
+    }
+
+    .project-card p {
+        font-size: 1em;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+
+    .project-card ul {
+        padding-left: 15px;
+    }
+
+    .project-card ul li {
+        font-size: 1em;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .project-card {
+        padding: 15px;
+    }
+
+    .project-section {
+        padding: 15px;
+    }
+
+    .project-card h3 {
+        font-size: 1.3em;
+    }
+
+    .project-card h4 {
+        font-size: 1.1em;
+    }
 }

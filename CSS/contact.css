@@ -40,9 +40,11 @@
 .contact-info a {
     color: #4CAF50;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
+    color: #45a049;
     text-decoration: underline;
 }
 
@@ -52,28 +54,141 @@
 }
 
 .contact-form label {
-    margin-bottom: 5px; /* Add space between label and input */
+    margin-bottom: 5px; 
 }
 
 .contact-form input, .contact-form textarea {
-    width: calc(100% - 20px); /* Ensure the input fields fit within the card */
+    width: 100%; 
     padding: 10px;
-    margin-bottom: 20px; /* Add space between input fields */
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
+    align-items: center;
 }
 
 .contact-form button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    align-self: flex-start; /* Align the button to the start of the form */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 150px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form button:hover {
     background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    #awards {
+        padding: 30px 0;
+        margin-top: 60px;
+    }
+
+    .awards-content {
+        padding: 0 15px;
+    }
+
+    .awards-content h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .award-card {
+        flex-direction: column;
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .award-image-container {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .award-image {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .award-info {
+        padding: 0;
+        text-align: center;
+    }
+
+    .award-info h3 {
+        font-size: 1.5em;
+        margin-bottom: 12px;
+    }
+
+    .award-info p {
+        font-size: 1em;
+        margin-bottom: 12px;
+        text-align: justify;
+        padding: 0 5px;
+    }
+
+    .award-info ul {
+        text-align: left;
+        padding-left: 25px;
+    }
+
+    .award-info ul li {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .award-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .awards-content h2 {
+        font-size: 1.8em;
+    }
+
+    .award-info h3 {
+        font-size: 1.3em;
+    }
+
+    .award-image {
+        max-width: 90%;
+    }
+}
+
+@media (hover: none) {
+    .contact-info a {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-form button {
+        width: 100%;
+        padding: 15px 30px;
+        font-size: 1em;
+    }
 }

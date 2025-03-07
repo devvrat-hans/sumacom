@@ -33,3 +33,36 @@ body.loaded {
     visibility: visible;
     opacity: 1;
 }
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px; /* Base font size for mobile */
+        margin-top: 60px; /* Adjust for fixed navbar */
+    }
+
+    body.loaded {
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+    }
+
+    #navigation-bar {
+        margin-top: -60px; /* Adjust navbar positioning */
+    }
+
+    #navigation-bar.loaded {
+        transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+        margin-top: 50px;
+    }
+
+    #navigation-bar {
+        margin-top: -50px;
+    }
+}
