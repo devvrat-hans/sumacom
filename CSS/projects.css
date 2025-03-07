@@ -11,15 +11,58 @@
     padding: 0 20px;
 }
 
-.projects-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+.projects-content > h2 {
+    position: relative;
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 50px;
+    display: inline-block;
 }
 
-.projects-content p {
+.projects-content > h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #4CAF50, #81C784);
+    border-radius: 2px;
+}
+
+.project-section {
+    margin-bottom: 60px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-section > h2 {
+    color: #4CAF50;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.project-section > h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #4CAF50;
+    border-radius: 1.5px;
+}
+
+.project-section > p {
     font-size: 1.2em;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .project-card {
@@ -27,33 +70,57 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    padding: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 30px 40px;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    border-left: 5px solid #4CAF50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.project-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-card h3 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.project-card h4 {
+    font-size: 1.4em;
+    color: #4CAF50;
+    margin: 25px 0 15px 0;
 }
 
 .project-card p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-card strong {
+    color: #4CAF50;
+    font-weight: 600;
 }
 
 .project-card ul {
     list-style-type: disc;
     padding-left: 20px;
+    margin: 15px 0;
 }
 
 .project-card ul li {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #666;
     margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.project-card.completed {
+    border-left-color: #2196F3;
+}
+
+.projects-content > h2::after {
+    display: none; /* This will remove the green underline */
 }
