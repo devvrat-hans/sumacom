@@ -1,0 +1,177 @@
+#awards {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.awards-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.awards-content h2 {
+    position: relative;
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 50px;
+    display: inline-block;
+}
+
+.award-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    padding: 30px;
+    width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.award-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.award-image-container {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.award-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.award-info {
+    flex: 2;
+    padding: 0 30px;
+    text-align: left;
+}
+
+.award-info h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.award-info p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+.award-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.award-info ul li {
+    font-size: 1.1em; 
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.6; 
+}
+
+.award-info ul li ul {
+    margin: 10px 0;
+    list-style-type: circle;
+}
+
+.award-info ul li ul li {
+    font-size: 1em; 
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    #awards {
+        padding-top: 100px; 
+        margin-top: 0; 
+    }
+
+    .awards-content {
+        padding: 0 15px;
+    }
+
+    .awards-content h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .award-card {
+        flex-direction: column;
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .award-image-container {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .award-image {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .award-info {
+        padding: 0;
+        text-align: center;
+    }
+
+    .award-info h3 {
+        font-size: 1.5em;
+        margin-bottom: 12px;
+    }
+
+    .award-info p {
+        font-size: 1em;
+        margin-bottom: 12px;
+        text-align: justify;
+        padding: 0 5px;
+    }
+
+    .award-info ul {
+        text-align: left;
+        padding-left: 25px;
+    }
+
+    .award-info ul li {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .award-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .awards-content h2 {
+        font-size: 1.8em;
+    }
+
+    .award-info h3 {
+        font-size: 1.3em;
+    }
+
+    .award-image {
+        max-width: 90%;
+    }
+}

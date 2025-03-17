@@ -1,0 +1,349 @@
+#careers {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.careers-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.careers-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Why Join Us Section */
+.why-join-us {
+    margin-bottom: 50px;
+}
+
+.why-join-us h3 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.benefits-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.benefit-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card h4 {
+    font-size: 1.4em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Open Positions Section */
+.open-positions {
+    margin-bottom: 50px;
+}
+
+.open-positions h3 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.position-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 30px;
+    text-align: left;
+    border-left: 5px solid #4CAF50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.position-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.position-card h4 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.position-type {
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #4CAF50;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.position-details p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.position-details ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.position-details ul li {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.apply-btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Application Process Section */
+.application-process {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.application-process h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.application-process p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.application-process a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.application-process a:hover {
+    text-decoration: underline;
+}
+
+/* Career Form Styling */
+.career-form {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.career-form h4 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group select {
+    cursor: pointer;
+    background-color: white;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Note Section */
+.note-section {
+    background-color: #e8f5e9;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: left;
+}
+
+.note-section h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.note-section p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    #careers {
+        padding-top: 100px;
+        margin-top: 0;
+    }
+
+    .careers-content {
+        padding: 0 15px;
+    }
+
+    .careers-content h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .intro-text {
+        font-size: 1.1em;
+        text-align: justify;
+    }
+
+    .why-join-us h3,
+    .open-positions h3,
+    .application-process h3 {
+        font-size: 1.6em;
+    }
+
+    .benefit-card {
+        min-width: 100%;
+        padding: 20px;
+    }
+
+    .position-card {
+        padding: 20px;
+    }
+
+    .position-card h4 {
+        font-size: 1.5em;
+    }
+
+    .career-form {
+        padding: 20px;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .careers-content h2 {
+        font-size: 1.8em;
+    }
+
+    .position-card h4 {
+        font-size: 1.3em;
+    }
+
+    .tag {
+        margin-bottom: 5px;
+    }
+
+    .apply-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
