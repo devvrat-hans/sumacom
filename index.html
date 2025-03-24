@@ -7,94 +7,253 @@
     <link rel="icon" type="image/x-icon" href="Images/Favicon/Favicon.png">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/nav.css">
-    <link rel="stylesheet" href="CSS/hero.css">
     <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <!-- Add Font Awesome for vector icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <section id="navigation-bar"></section>
 
-    <section id="hero">
+    <section id="hero" class="animate__animated animate__fadeIn">
         <div class="hero-content">
-            <h2>Welcome to Sumacom Consultancy Pvt. Ltd.</h2>
-            <p>Your partner in research and consultancy</p>
+            <h2 class="animate__animated animate__fadeInDown animate__delay-0.5s">Welcome to Sumacom Consultancy Pvt. Ltd.</h2>
+            <p class="animate__animated animate__fadeInUp animate__delay-0.5s">Your partner in research and consultancy</p>
             <br>
-            <a href="services.html" class="btn">Learn More</a>
+            <div class="hero-buttons animate__animated animate__fadeIn animate__delay-1s">
+                <a href="services.html" class="btn primary-btn"></i> Our Services</a>
+                <a href="contact.html" class="btn secondary-btn"></i> Contact Us</a>
+            </div>
         </div>
+        <div class="hero-overlay"></div>
     </section>
 
     <section id="banner">
         <div class="banner-content">
-            <div class="stat">
-                <h3>20+</h3>
+            <div class="stat" data-aos="fade-up" data-aos-delay="50">
+                <h3 class="counter" data-target="20">0</h3>
                 <p>Happy Customers</p>
             </div>
-            <div class="stat">
-                <h3>1cr+</h3>
+            <div class="stat" data-aos="fade-up" data-aos-delay="50">
+                <h3><span class="counter" data-target="1"></span>cr+</h3>
                 <p>Money Saved</p>
             </div>
-            <div class="stat">
-                <h3>25+</h3>
+            <div class="stat" data-aos="fade-up" data-aos-delay="50">
+                <h3 class="counter" data-target="25">0</h3>
                 <p>Projects Completed</p>
             </div>
         </div>
     </section>
 
-    <!-- <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-content">
-            <img src="Images/Gallery/image1.jpg" alt="Gallery Image 1">
-            <img src="Images/Gallery/image2.jpg" alt="Gallery Image 2">
-            <img src="Images/Gallery/image3.jpg" alt="Gallery Image 3">
-        </div>
-    </section> -->
-<!-- 
-    <section id="news">
-        <h2>Latest News in Chemical Research Industry</h2>
-        <div class="news-content">
-            <article>
-                <h3>New Breakthrough in Chemical Research</h3>
-                <p>Researchers have discovered a new method to synthesize biodegradable plastics...</p>
-                <a href="#">Read More</a>
-            </article>
-            <article>
-                <h3>Innovations in Sustainable Chemistry</h3>
-                <p>Recent advancements in sustainable chemistry have led to the development of eco-friendly adhesives...</p>
-                <a href="#">Read More</a>
-            </article>
+    <section id="about-brief" data-aos="fade-up">
+        <div class="about-brief-content">
+            <h2>Who We Are</h2>
+            <div class="about-brief-grid">
+                <div class="about-brief-text">
+                    <p>Sumacom is a contract-based research consultancy firm dedicated to providing top-notch research services. Our team of experienced professionals is committed to delivering high-quality research and consultancy services to help our clients achieve their goals.</p>
+                    <p>With expertise in chemical engineering, materials science, and process optimization, we work closely with industrial partners to solve complex challenges and develop innovative solutions.</p>
+                    <a href="about.html" class="btn outline-btn"></i> Learn More About Us</a>
+                </div>
+                <div class="about-brief-image">
+                    <i class="fas fa-microscope fa-8x" style="color: #4CAF50; opacity: 0.8;"></i>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="commitment">
-        <h2>Our Commitment to Excellence</h2>
-        <p>At Sumacom, we are dedicated to providing top-notch research and consultancy services. Our team of experts is committed to delivering innovative solutions that drive success for our clients.</p>
-    </section> -->
-
-    <!-- <section id="testimonials">
-        <h2>Client Testimonials</h2>
-        <div class="testimonial">
-            <p>"Sumacom has been instrumental in helping us achieve our research goals. Their expertise and dedication are unmatched."</p>
-            <h4>- Client Name</h4>
+    <section id="services-preview" data-aos="fade-up">
+        <div class="services-preview-content">
+            <h2>Our Core Services</h2>
+            <div class="services-cards">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs fa-4x" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3>System Optimization</h3>
+                    <p>Enhancing efficiency and performance of your chemical processes to maximize productivity.</p>
+                </div>
+                <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-atom fa-4x" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3>Formula Development</h3>
+                    <p>Creating patent-worthy chemical formulations tailored to your specific industry needs.</p>
+                </div>
+                <div class="service-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-vial fa-4x" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3>Testing Services</h3>
+                    <p>Comprehensive material testing and analysis with state-of-the-art equipment and expertise.</p>
+                </div>
+            </div>
+            <a href="services.html" class="btn primary-btn"><i class="fas fa-arrow-right"></i> View All Services</a>
         </div>
-        <div class="testimonial">
-            <p>"The team at Sumacom provided us with valuable insights and solutions that significantly improved our processes."</p>
-            <h4>- Client Name</h4>
-        </div>
-    </section> -->
-
-    <section id="get-started">
-        <h2>Get Started Now</h2>
-        <a href="/contact.html" class="btn">Contact Us</a>
     </section>
 
-    <br>
-    <br>
-    <br>
+    <section id="testimonials" data-aos="fade-up">
+        <div class="testimonials-content">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-text">
+                        <p>"Sumacom has been instrumental in helping us achieve our research goals. Their expertise and dedication are unmatched."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p class="author-name">- Industrial Client</p>
+                        <p class="author-company">Chemical Manufacturing Sector</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"The team at Sumacom provided us with valuable insights and solutions that significantly improved our processes."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p class="author-name">- Research Partner</p>
+                        <p class="author-company">Materials Innovation Lab</p>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <span class="control-dot active" data-slide="0"></span>
+                    <span class="control-dot" data-slide="1"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section id="featured-projects" data-aos="fade-up">
+        <div class="featured-projects-content">
+            <h2>Featured Projects</h2>
+            <div class="project-cards">
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sustainable Adhesive</h3>
+                        <p>Development of an eco-friendly adhesive from waste materials, reducing environmental impact.</p>
+                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>UF Resin Formulation</h3>
+                        <p>Cost-effective modification of Urea Formaldehyde Resin, achieving significant production savings.</p>
+                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>DMAS Synthesis</h3>
+                        <p>Development of a scalable production process for Dimethyl Acetyl Succinate, a valuable pharmaceutical intermediate.</p>
+                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Phthalic Anhydride</h3>
+                        <p>Optimized synthesis process for a key chemical used in plastics, paints, and coatings industries.</p>
+                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <!-- <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-image">
+                        <i class="fas fa-pills fa-3x" style="color: #4CAF50; padding: 40px;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Para-Amino Phenol</h3>
+                        <p>Developing cost-effective production methods for this crucial pharmaceutical intermediate.</p>
+                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="project-image">
+                        <i class="fas fa-recycle fa-3x" style="color: #4CAF50; padding: 40px;"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Textile Recycling</h3>
+                        <p>Innovative chemical and physical methods to convert waste textiles into reusable materials.</p>
+                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
+                    </div>
+                </div> -->
+            </div>
+            <a href="projects.html" class="btn outline-btn"> Explore All Projects</a>
+        </div>
+    </section>
+    <section id="cta-section" data-aos="fade-up">
+        <div class="cta-content">
+            <h2>Ready to Innovate?</h2>
+            <p>Let's collaborate on your next research or consultancy project</p>
+            <a href="contact.html" class="btn primary-btn pulse"> Get in Touch Today</a>
+        </div>
+    </section>
+
     <footer></footer>
-    
 
     <script src="JS/template.js"></script>
     <script src="JS/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // ms
+            const stepTime = Math.abs(Math.floor(duration / target));
+            
+            let current = 0;
+            const timer = setInterval(() => {
+                current += 1;
+                counter.textContent = current;
+                if (current === target) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        });
+
+        // Testimonials slider
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const controlDots = document.querySelectorAll('.control-dot');
+        
+        controlDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                
+                // Hide all testimonials
+                testimonialCards.forEach(card => card.classList.remove('active'));
+                controlDots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show selected testimonial
+                testimonialCards[slideIndex].classList.add('active');
+                dot.classList.add('active');
+            });
+        });
+
+        // Auto-rotate testimonials
+        let currentSlide = 0;
+        setInterval(() => {
+            testimonialCards.forEach(card => card.classList.remove('active'));
+            controlDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (currentSlide + 1) % testimonialCards.length;
+            
+            testimonialCards[currentSlide].classList.add('active');
+            controlDots[currentSlide].classList.add('active');
+        }, 6000);
+    </script>
 </body>
 </html>
