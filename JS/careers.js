@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = mailtoLink;
             
             // Show alert about resume attachment
-            alert('Your application email has been generated. Please attach your resume to the email before sending it. Thank you for your interest in working with Sumacom!');
+            alert('Your application email has been generated. Please attach your resume to the email before sending it. Don\'t change the format of the mail. Thank you for your interest in working with Sumacom!');
         });
     }
     

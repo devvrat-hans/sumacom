@@ -119,6 +119,11 @@
     font-weight: 500;
 }
 
+.position-details {
+    width: 100%;
+    overflow: hidden; /* Prevent overflow */
+}
+
 .position-details p {
     font-size: 1.1em;
     color: #666;
@@ -151,6 +156,7 @@
     margin-top: 20px;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .apply-btn:hover {
@@ -167,6 +173,8 @@
     margin-bottom: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .application-process h3 {
@@ -198,6 +206,8 @@
     border-radius: 10px;
     padding: 30px;
     margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .career-form h4 {
@@ -209,6 +219,8 @@
 
 .form-group {
     margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group label {
@@ -220,19 +232,51 @@
 }
 
 .form-group input,
-.form-group select,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
+    max-width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
-.form-group select {
-    cursor: pointer;
+/* File input specific styling */
+.form-group input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
     background-color: white;
+}
+
+/* Fixed dropdown styling */
+.form-group select {
+    background-color: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Ensure dropdown options are properly styled */
+.form-group select option {
+    padding: 12px;
+    font-size: 1em;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .form-group textarea {
@@ -254,6 +298,7 @@
     display: block;
     width: 100%;
     margin-top: 10px;
+    box-sizing: border-box;
 }
 
 .submit-btn:hover {
@@ -268,6 +313,8 @@
     border-radius: 10px;
     padding: 25px;
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .note-section h3 {
@@ -283,7 +330,7 @@
     margin-bottom: 15px;
 }
 
-/* Mobile Responsive Styles */
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
     #careers {
         padding-top: 100px;
@@ -296,18 +343,25 @@
 
     .careers-content h2 {
         font-size: 2em;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .intro-text {
         font-size: 1.1em;
         text-align: justify;
+        margin-bottom: 30px;
     }
 
+    /* Why Join Us section */
     .why-join-us h3,
     .open-positions h3,
     .application-process h3 {
         font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    .benefits-container {
+        gap: 15px;
     }
 
     .benefit-card {
@@ -315,15 +369,58 @@
         padding: 20px;
     }
 
+    /* Position cards */
     .position-card {
         padding: 20px;
+        margin-bottom: 25px;
     }
 
     .position-card h4 {
-        font-size: 1.5em;
+        font-size: 1.4em;
+    }
+
+    .position-type {
+        margin-bottom: 15px;
+    }
+
+    /* Apply button */
+    .apply-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 20px auto 0;
+        padding: 12px 20px;
+    }
+
+    /* Application form */
+    .application-process {
+        padding: 20px;
     }
 
     .career-form {
+        padding: 20px;
+    }
+
+    /* Form inputs */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .form-group input[type="file"] {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .form-group select {
+        background-position: right 8px center;
+        padding-right: 28px;
+    }
+    
+    /* Note section */
+    .note-section {
         padding: 20px;
     }
 }
@@ -332,6 +429,10 @@
 @media screen and (max-width: 480px) {
     .careers-content h2 {
         font-size: 1.8em;
+    }
+
+    .benefit-card h4 {
+        font-size: 1.2em;
     }
 
     .position-card h4 {
@@ -343,7 +444,29 @@
     }
 
     .apply-btn {
-        width: 100%;
-        text-align: center;
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    
+    .position-card {
+        padding: 15px;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+    
+    .form-group input[type="file"] {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+    
+    .career-form {
+        padding: 15px;
+    }
+    
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 1em;
     }
 }
