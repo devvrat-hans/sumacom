@@ -12,8 +12,8 @@ nav {
     box-sizing: border-box;
     position: fixed;
     z-index: 1000;
-    opacity: 1; /* Change from 0 to 1 */
-    transition: none; /* Remove initial transition */
+    opacity: 1; 
+    transition: none; 
 }
 
 nav.loaded {

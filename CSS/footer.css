@@ -3,6 +3,8 @@ footer {
     color: white;
     padding: 20px 0;
     text-align: center;
+    width:100%;
+
 }
 
 .footer-container {
@@ -89,9 +91,18 @@ footer {
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
+    footer {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 15px; /* Match the 15px padding used in other mobile sections */
+        margin: 0;
+    }
+    
     .footer-container {
         flex-direction: column;
-        padding: 20px;
+        padding: 0; /* Remove padding here since we added it to the footer */
+        width: 100%;
+        max-width: 100%;
     }
 
     .footer-column {
@@ -99,6 +110,7 @@ footer {
         margin: 15px 0;
         min-width: unset;
         text-align: center;
+        padding: 0 5px; /* Add small padding for content */
     }
 
     .footer-column h3 {

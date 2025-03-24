@@ -1,4 +1,4 @@
-/* Enhanced Hero Section CSS */
+
 #hero {
     background: linear-gradient(135deg, #388E3C, #81C784);
     color: white;
@@ -59,7 +59,7 @@
     gap: 30px;
 }
 
-/* Improved button styles */
+
 .btn {
     padding: 14px 32px;
     border-radius: 6px;
@@ -97,7 +97,7 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile responsiveness */
+
 @media screen and (max-width: 768px) {
     #hero {
         padding: 100px 0 70px;
@@ -129,7 +129,7 @@
     transform: translateY(-3px);
 }
 
-/* Banner Section */
+
 #banner {
     background-color: #e8f5e9;
     color: #333;
@@ -162,7 +162,7 @@
     font-weight: 500;
 }
 
-/* About Brief Section */
+
 #about-brief {
     padding: 80px 0;
     background-color: #fff;
@@ -222,7 +222,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Services Preview Section */
+
 #services-preview {
     padding: 80px 0;
     background-color: #f9f9f9;
@@ -299,7 +299,7 @@
     line-height: 1.6;
 }
 
-/* Testimonials Section */
+
 #testimonials {
     padding: 80px 0;
     background-color: #fff;
@@ -403,7 +403,7 @@
     background-color: #4CAF50;
 }
 
-/* Featured Projects Section */
+
 #featured-projects {
     padding: 80px 0;
     background-color: #f4f4f4;
@@ -461,17 +461,17 @@
 }
 
 .project-info {
-    padding:20px; /* Reduced padding */
+    padding:20px; 
 }
 
 .project-info h3 {
-    font-size: 1.4em; /* Slightly smaller font */
-    margin-bottom: 10px; /* Reduced margin */
+    font-size: 1.4em; 
+    margin-bottom: 10px; 
 }
 
 .project-info p {
-    margin-bottom: 10px; /* Reduced margin */
-    line-height: 1.5; /* Slightly tighter line height */
+    margin-bottom: 10px; 
+    line-height: 1.5; 
 }
 
 .text-link {
@@ -496,7 +496,7 @@
     transform: translateX(5px);
 }
 
-/* CTA Section */
+
 #cta-section {
     padding: 80px 0;
     background: linear-gradient(135deg, #4CAF50, #81C784);
@@ -538,43 +538,118 @@
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
-
-/* Mobile Styles */
 @media screen and (max-width: 768px) {
+    /* Universal Container Fix */
+    .hero-content,
+    .banner-content,
+    .about-brief-content,
+    .services-preview-content,
+    .testimonials-content,
+    .featured-projects-content,
+    .cta-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+        overflow: hidden; /* Prevent any overflow */
+    }
+    
     /* Hero Section */
     #hero {
-        padding: 100px 0 70px;
+        padding: 90px 0 60px;
+        margin-top: 60px;
     }
     
     .hero-content h2 {
-        font-size: 2.3em;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        padding: 0 5px;
     }
     
+    .hero-content p {
+        font-size: 1.1em;
+        margin: 0.5em 0;
+    }
+    
+    .hero-subtitle {
+        font-size: 1em;
+        margin: 1em 0 1.5em;
+        padding: 0 5px;
+    }
+    
+    /* Button Fix - Universal */
+    .btn {
+        display: inline-block;
+        width: 100%;
+        padding: 12px 15px !important; /* Override any other padding */
+        margin: 5px 0;
+        font-size: 1em;
+        text-align: center;
+        box-sizing: border-box;
+        white-space: normal; /* Allow text wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .btn i {
+        margin-right: 8px;
+        font-size: 0.9em;
+    }
+    
+    /* Hero Buttons */
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
     }
     
-    .btn {
-        width: 100%;
-        padding: 12px 20px;
-    }
-
-    /* Banner Section */
+    /* Banner/Stats Section */
     #banner {
         padding: 40px 15px;
     }
-
+    
     .banner-content {
         flex-direction: column;
         gap: 30px;
     }
-
+    
     .banner-content .stat {
         position: relative;
         padding-bottom: 20px;
+        width: 100%;
+        text-align: center; 
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
     }
-
+    
+    .banner-content .stat h3 {
+        font-size: 2.5em;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    .banner-content .stat p {
+        font-size: 1.1em;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0 15px;
+    }
+    
+    .banner-content .stat i {
+        margin-bottom: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .banner-content .stat h3 span.counter {
+        display: inline; /* Keep spans inline */
+    }
+    
     .banner-content .stat:not(:last-child)::after {
         content: '';
         position: absolute;
@@ -585,121 +660,146 @@
         height: 1px;
         background: rgba(0, 0, 0, 0.1);
     }
-
-    .banner-content .stat h3 {
-        font-size: 2.5em;
-    }
-
+    
     /* About Brief Section */
     #about-brief {
-        padding: 60px 0;
+        padding: 50px 0;
     }
-
+    
+    .about-brief-content h2 {
+        font-size: 1.8em;
+    }
+    
     .about-brief-grid {
         flex-direction: column-reverse;
-        gap: 30px;
+        gap: 20px;
     }
-
-    .about-brief-text, .about-brief-image {
+    
+    .about-brief-text, 
+    .about-brief-image {
         width: 100%;
+        text-align: center;
     }
-
+    
+    .about-brief-text p {
+        text-align: left;
+        font-size: 1em;
+    }
+    
     /* Services Preview Section */
     #services-preview {
-        padding: 60px 0;
+        padding: 50px 0;
     }
-
+    
+    .services-preview-content h2 {
+        font-size: 1.8em;
+    }
+    
     .services-cards {
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        gap: 20px;
     }
-
+    
     .service-card {
         width: 100%;
-        max-width: 350px;
-        margin-bottom: 30px;
+        max-width: 300px;
+        margin-bottom: 20px;
+        padding: 20px 15px;
     }
-
+    
+    .service-card h3 {
+        font-size: 1.3em;
+    }
+    
+    .service-card p {
+        font-size: 0.95em;
+    }
+    
     /* Testimonials Section */
     #testimonials {
-        padding: 60px 0;
+        padding: 50px 0;
     }
-
+    
+    .testimonials-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .testimonial-card {
+        padding: 20px 15px;
+    }
+    
     .testimonial-text p {
-        font-size: 1.1em;
+        font-size: 1em;
     }
-
+    
     /* Featured Projects Section */
     #featured-projects {
-        padding: 60px 0;
+        padding: 50px 0;
     }
-
+    
+    .featured-projects-content h2 {
+        font-size: 1.8em;
+    }
+    
     .project-cards {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
+        width: 100%;
     }
-
+    
     .project-card {
         width: 100%;
-        max-width: 400px;
-        margin-bottom: 30px;
+        max-width: 300px;
+        padding-top: 5px;
+        box-sizing: border-box;
     }
-
-    /* CTA Section */
-    #cta-section {
-        padding: 60px 0;
+    
+    .project-info {
+        padding: 15px;
     }
-
-    .cta-content h2 {
-        font-size: 2em;
-    }
-
-    .cta-content p {
-        font-size: 1.1em;
-    }
-}
-
-/* Extra Small Devices */
-@media screen and (max-width: 480px) {
-    .hero-content h2 {
-        font-size: 1.8em;
-    }
-
-    .hero-content p {
-        font-size: 1.1em;
-    }
-
-    .banner-content .stat h3 {
-        font-size: 2.2em;
-    }
-
-    .banner-content .stat p {
-        font-size: 0.9em;
-    }
-
-    .banner-content .stat:not(:last-child)::after {
-        width: 80%;
-    }
-
-    .about-brief-content h2,
-    .services-preview-content h2,
-    .testimonials-content h2,
-    .featured-projects-content h2,
-    .cta-content h2 {
-        font-size: 2em;
-    }
-
-    .service-card,
-    .project-card {
-        padding: 20px;
-    }
-
-    .service-card h3,
+    
     .project-info h3 {
         font-size: 1.3em;
     }
-
-    .testimonial-text p {
+    
+    .project-info p {
+        font-size: 0.95em;
+    }
+    
+    /* CTA Section */
+    #cta-section {
+        padding: 50px 0;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .cta-content p {
         font-size: 1em;
+        margin-bottom: 20px;
+    }
+    
+    /* Section Button Containers - consistent spacing */
+    .services-preview-content .btn,
+    .featured-projects-content .btn,
+    .about-brief-text .btn,
+    .cta-content .btn {
+        margin: 10px auto;
+        max-width: 280px;
+    }
+    
+    /* Make sure buttons with icons don't overflow */
+    .btn i {
+        margin-right: 6px;
+    }
+    
+    /* Fix specifically for buttons with longer text */
+    .btn {
+        line-height: 1.3;
+        hyphens: auto;
     }
 }
