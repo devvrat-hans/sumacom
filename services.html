@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="CSS/nav.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/services.css">
+    <link rel="stylesheet" href="CSS/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     
 </head>
 <body>
@@ -226,7 +229,35 @@
     <footer>
     </footer>
 
+    <!-- Chatbot Widget -->
+    <div class="chat-widget">
+        <div class="chat-toggle">
+            <i class="fas fa-comments fa-lg"></i>
+        </div>
+        <div class="chat-box">
+            <div class="chat-header">
+                <h3>Sumacom Support</h3>
+                <button class="close-chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages">
+                <div class="message bot-message">
+                    Hello! Welcome to Sumacom. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="chat-input-field">
+                <button class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/webhook-config.js"></script>
     <script src="JS/template.js"></script>
     <script src="JS/main.js"></script>
+    <script src="JS/chatbot.js"></script>
 </body>
 </html>
