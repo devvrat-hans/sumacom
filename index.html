@@ -15,6 +15,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <!-- Add Font Awesome for vector icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hide ElevenLabs branding */
+        .elevenlabs-convai-widget-container .elevenlabs-convai-branding,
+        elevenlabs-convai::part(powered-by),
+        elevenlabs-convai::part(branding) {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+        }
+        
+        /* Custom styling for ElevenLabs widget - position on left side */
+        elevenlabs-convai {
+            --convai-launcher-horizontal-position: left !important;
+            --convai-launcher-horizontal-offset: 20px !important;
+        }
+    </style>
 </head>
 <body>
     <section id="navigation-bar"></section>
@@ -230,32 +247,6 @@
     <script src="JS/main.js"></script>
     <script src="JS/chatbot.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <!-- <script>
-        var vapiInstance = null;
-        const assistant = "35744797-c26b-419e-995e-f92f5fb670c9"; // Substitute with your assistant ID
-        const apiKey = "996cb1f4-2984-474c-8862-ad03d4b91f3d"; // Substitute with your Public key from Vapi Dashboard.
-        const buttonConfig = {}; // Modify this as required
-      
-        (function (d, t) {
-          var g = document.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-          g.src =
-            "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
-          g.defer = true;
-          g.async = true;
-          s.parentNode.insertBefore(g, s);
-      
-          g.onload = function () {
-            vapiInstance = window.vapiSDK.run({
-              apiKey: apiKey, // mandatory
-              assistant: assistant, // mandatory
-              config: buttonConfig, // optional
-            });
-          };
-        })(document, "script");
-      
-    </script> -->
-      
     <script>
         // Initialize AOS animation library
         AOS.init({
@@ -310,5 +301,10 @@
             controlDots[currentSlide].classList.add('active');
         }, 6000);
     </script>
+    <elevenlabs-convai 
+        agent-id="23bKFRGY6wbhdHr23o8f"
+        disable-powered-by>
+    </elevenlabs-convai>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
 </body>
 </html>
