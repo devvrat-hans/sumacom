@@ -1,8 +1,6 @@
-// N8N Webhook Configuration
-const WEBHOOK_CONFIG = {
-  url: "https://n8n-vkel.onrender.com/webhook-test/sumacom-chatbot1", 
-  auth: {
-    username: "sumacom",
-    password: "Sumacom@123"  
-  }
+// Chatbot Configuration
+const CHATBOT_CONFIG = {
+  // Using proxy endpoint instead of direct API access for security
+  proxyUrl: "/api/chat-proxy.php",
+  // No API keys stored in frontend code
 };

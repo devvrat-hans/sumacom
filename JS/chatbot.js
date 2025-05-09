@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
         showTypingIndicator();
         
         try {
-            // Send message to n8n webhook and get response
-            const botResponse = await sendToWebhook(message);
+            // Send message to our secure proxy instead of directly to Pinecone API
+            const botResponse = await sendToChatProxy(message);
             
             // Remove typing indicator
             removeTypingIndicator();
@@ -57,117 +57,91 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show error message
             addMessage("Sorry, I'm having trouble connecting right now. Please try again later.", 'bot');
-            console.error("Webhook error:", error);
+            console.error("API error:", error);
         }
         
         // Scroll to bottom of chat
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
     
-    async function sendToWebhook(userMessage) {
+    async function sendToChatProxy(userMessage) {
         try {
-            // Check if webhook config is available
-            if (typeof WEBHOOK_CONFIG === 'undefined') {
-                console.error("Webhook configuration not found!");
+            // Check if config is available
+            if (typeof CHATBOT_CONFIG === 'undefined') {
+                console.error("Chatbot configuration not found!");
                 return "Sorry, the chatbot is not properly configured. Please try again later.";
             }
             
-            // Prepare headers
-            const headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            
-            // Add basic authentication if credentials are provided
-            if (WEBHOOK_CONFIG.auth && WEBHOOK_CONFIG.auth.username && WEBHOOK_CONFIG.auth.password) {
-                const authString = `${WEBHOOK_CONFIG.auth.username}:${WEBHOOK_CONFIG.auth.password}`;
-                const base64Auth = btoa(authString);
-                headers.append('Authorization', `Basic ${base64Auth}`);
-            }
-            
-            // Prepare request data
-            const requestData = {
-                message: userMessage,
-                timestamp: new Date().toISOString(),
-                source: 'sumacom-website',
-                pageUrl: window.location.href,
-                sessionId: getSessionId(),
-                userAgent: navigator.userAgent
-            };
-            
-            console.log("Sending message to webhook:", WEBHOOK_CONFIG.url);
-            
-            // Send request to webhook
-            const response = await fetch(WEBHOOK_CONFIG.url, {
+            // Send request to our secure proxy instead of directly to Pinecone
+            const response = await fetch(CHATBOT_CONFIG.proxyUrl, {
                 method: 'POST',
-                headers: headers,
-                body: JSON.stringify(requestData),
-                credentials: 'omit' // Don't send cookies
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: userMessage
+                })
             });
             
             // Check if response is ok
             if (!response.ok) {
-                console.error(`HTTP error! status: ${response.status}`);
+                const errorText = await response.text();
+                console.error(`HTTP error! status: ${response.status}, message: ${errorText}`);
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
             // Parse the response
-            try {
-                const data = await response.json();
-                console.log("Received response from webhook:", data);
-                
-                // Handle the specific format [{"output":"message text"}]
-                if (Array.isArray(data) && data.length > 0 && data[0].output) {
-                    // Use the output property from the first item in the array
-                    return formatBotResponse(data[0].output);
-                }
-                // Fallback for other response formats
-                else if (data.response) {
-                    return formatBotResponse(data.response);
-                }
-                else if (data.message) {
-                    return formatBotResponse(data.message);
-                }
-                else if (typeof data === 'string') {
-                    return formatBotResponse(data);
-                }
-                else {
-                    return "I received your message but couldn't process the response correctly.";
-                }
-                
-            } catch (jsonError) {
-                console.error("Error parsing JSON response:", jsonError);
-                const textResponse = await response.text();
-                if (textResponse && textResponse.trim().length > 0) {
-                    return formatBotResponse(textResponse);
-                } else {
-                    throw new Error("No valid response from webhook");
+            const data = await response.json();
+            console.log("API response:", data);
+            
+            // Extract the correct assistant's message from the response
+            if (data && data.message && data.message.content) {
+                return formatBotResponse(data.message.content);
+            } 
+            // Alternative format that might be returned
+            else if (data && data.choices && data.choices.length > 0) {
+                const message = data.choices[0].message;
+                if (message && message.content) {
+                    return formatBotResponse(message.content);
                 }
             }
             
+            console.error("Unexpected response format:", data);
+            return "I'm currently experiencing issues processing responses. Please try again later.";
         } catch (error) {
-            console.error("Error connecting to webhook:", error);
-            return "Sorry, I couldn't connect to my processing service. Please try again later.";
+            console.error("Error with chat API:", error);
+            return "Sorry, I couldn't connect to the chat service. Please try again later.";
         }
     }
     
-    // Format bot's response by converting markdown-style lists to HTML
+    // Format bot's response by converting markdown-style formatting to HTML
     function formatBotResponse(text) {
+        if (!text) return '';
+        
         // Handle line breaks
         text = text.replace(/\n/g, '<br>');
         
-        // Handle markdown-style bullet points with HTML formatting
+        // Handle numbered lists (1. Item)
+        text = text.replace(/(\d+\.)\s(.*?)(?:<br>|$)/g, '<ol start="$1"><li>$2</li></ol>');
+        
+        // Handle markdown-style bullet points
         text = text.replace(/\* (.*?)(?:<br>|$)/g, '• $1<br>');
         
+        // Handle bold text (**text**)
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Handle italic text (*text*)
+        text = text.replace(/\*([^\*]+)\*/g, '<em>$1</em>');
+        
+        // Handle links [text](url)
+        text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+        
+        // Handle headers (### Header)
+        text = text.replace(/###\s(.*?)(?:<br>|$)/g, '<h3>$1</h3>');
+        text = text.replace(/##\s(.*?)(?:<br>|$)/g, '<h2>$1</h2>');
+        text = text.replace(/#\s(.*?)(?:<br>|$)/g, '<h1>$1</h1>');
+        
         return text;
-    }
-    
-    // Generate or retrieve a session ID
-    function getSessionId() {
-        let sessionId = localStorage.getItem('sumacom_chat_session');
-        if (!sessionId) {
-            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('sumacom_chat_session', sessionId);
-        }
-        return sessionId;
     }
     
     function addMessage(message, sender) {
