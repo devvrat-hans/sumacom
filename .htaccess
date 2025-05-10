@@ -1,15 +1,62 @@
 RewriteEngine On
 RewriteBase /
 
-# 1. Redirect /index or /index.html to the root URL (/)
+# Set environment variables for Pinecone API
+SetEnv PINECONE_API_KEY "pcsk_7M2m3N_7gYkcz1CQz2s3chbv4xdJhwU39pwTh4s463asZjDxX4UKVEEFnLGyMXwPMaotuM"
+SetEnv PINECONE_ASSISTANT_NAME "sumacom-chatbot"
+
+# General site protection
+Options -Indexes
+<Files ~ "\.conf$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect API directory with specific rules
+<Directory "/api">
+    # Prevent directory listing within API folder
+    Options -Indexes
+    
+    # Allow PHP execution but with restrictions
+    <Files "*.php">
+        # Set referer restrictions for production
+        SetEnvIf Host "^(www\.)?sumcomconsultancy\.com$" localreferer=yes
+        Order deny,allow
+        Deny from all
+        Allow from env=localreferer
+    </Files>
+</Directory>
+
+# Block access to all PHP files in /api except chat-proxy.php
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_URI} ^/api/(.+)\.php$
+    RewriteCond %{REQUEST_URI} !^/api/chat-proxy\.php$
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Clean URL rewrites for the main site
+# Redirect /index or /index.html to the root URL (/)
 RewriteCond %{THE_REQUEST} \s/index(?:\.html)?[\s?] [NC]
 RewriteRule ^index(?:\.html)?$ / [R=301,L]
 
-# 2. Redirect direct requests for .html files to the extensionless URL
+# Redirect direct requests for .html files to the extensionless URL
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# 3. Internally rewrite extensionless URLs to their corresponding .html files
+# Internally rewrite extensionless URLs to their corresponding .html files
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L,NC]
+
+# Protect against common web exploits
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Allow embedding on your own domain
+    Header set Content-Security-Policy "frame-ancestors 'self' https://*.sumcomconsultancy.com"
+</IfModule>
+
+# Force HTTPS (uncomment when SSL is set up)
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

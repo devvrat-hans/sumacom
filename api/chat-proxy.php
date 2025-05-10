@@ -2,8 +2,8 @@
 // Secure API proxy for Pinecone chatbot
 header('Content-Type: application/json');
 
-// CORS headers - adjust as needed for security
-header('Access-Control-Allow-Origin: *'); // In production, replace with your domain
+// CORS headers - update with your actual domain in production
+header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -30,8 +30,7 @@ if (!$requestData || !isset($requestData['message']) || empty($requestData['mess
     exit();
 }
 
-// Load environment variables from .env file if using a library like vlucas/phpdotenv
-// If using Hostinger, you can set these in the PHP configuration
+// Load API credentials from environment variables
 $apiKey = getenv('PINECONE_API_KEY');
 $assistantName = getenv('PINECONE_ASSISTANT_NAME');
 $apiVersion = '2025-01';
@@ -39,8 +38,6 @@ $model = 'gpt-4o';
 
 // Check if API credentials are available
 if (!$apiKey || !$assistantName) {
-    // Log the error server-side, don't expose details to client
-    error_log('Missing Pinecone API credentials');
     http_response_code(500);
     echo json_encode(['error' => 'Server configuration error']);
     exit();
@@ -82,7 +79,6 @@ curl_close($ch);
 
 // Check for cURL errors
 if ($error) {
-    error_log('cURL Error: ' . $error);
     http_response_code(500);
     echo json_encode(['error' => 'Failed to connect to API service']);
     exit();
