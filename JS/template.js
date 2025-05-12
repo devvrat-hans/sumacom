@@ -73,13 +73,40 @@ function loadFooter() {
 
 function updateActiveNavLink() {
     try {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Get the current page path, handling both local and production cases
+        let currentPage = window.location.pathname;
+        
+        // Extract just the filename from the path
+        currentPage = currentPage.split('/').pop() || 'index.html';
+        
+        // Handle case when URL doesn't have a file extension (clean URLs)
+        if (!currentPage.includes('.')) {
+            // If no extension, add .html for comparison or handle root url
+            currentPage = currentPage === '' ? 'index.html' : currentPage + '.html';
+        }
+        
+        // Log for debugging
+        console.log('Current page detected as:', currentPage);
+        
+        // Get all navigation links
         const navLinks = document.querySelectorAll('.nav-links a');
         
+        // Remove active class from all links first
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === currentPage) {
+        });
+        
+        // Find the matching link and add active class
+        navLinks.forEach(link => {
+            // Get the href attribute
+            const href = link.getAttribute('href');
+            
+            // Compare with current page, handling both formats
+            if (href === currentPage || 
+                href === currentPage.replace('.html', '') ||
+                (currentPage === 'index.html' && (href === '/' || href === '' || href === '#'))) {
                 link.classList.add('active');
+                console.log('Setting active link:', href);
             }
         });
     } catch (error) {
@@ -89,12 +116,35 @@ function updateActiveNavLink() {
 
 function updateActiveFooterLink() {
     try {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Get the current page path, handling both local and production cases
+        let currentPage = window.location.pathname;
+        
+        // Extract just the filename from the path
+        currentPage = currentPage.split('/').pop() || 'index.html';
+        
+        // Handle case when URL doesn't have a file extension (clean URLs)
+        if (!currentPage.includes('.')) {
+            // If no extension, add .html for comparison or handle root url
+            currentPage = currentPage === '' ? 'index.html' : currentPage + '.html';
+        }
+        
+        // Get all footer links
         const footerLinks = document.querySelectorAll('.footer-links a');
         
+        // Remove active class from all links
         footerLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === currentPage) {
+        });
+        
+        // Find the matching link and add active class
+        footerLinks.forEach(link => {
+            // Get the href attribute
+            const href = link.getAttribute('href');
+            
+            // Compare with current page, handling both formats
+            if (href === currentPage || 
+                href === currentPage.replace('.html', '') ||
+                (currentPage === 'index.html' && (href === '/' || href === '' || href === '#'))) {
                 link.classList.add('active');
             }
         });
