@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Load navbar and footer immediately
-    Promise.all([loadNavbar(), loadFooter()])
+    // Load navbar, footer, and chatbot immediately
+    Promise.all([loadNavbar(), loadFooter(), loadChatbot()])
         .then(() => {
             // Remove preload class after all content is loaded
             setTimeout(() => {
@@ -71,6 +71,30 @@ function loadFooter() {
         });
 }
 
+function loadChatbot() {
+    return fetch('./templates/shared/chatbot.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to load chatbot');
+            return response.text();
+        })
+        .then(data => {
+            // Create a container for the chatbot if it doesn't exist
+            let chatbotContainer = document.getElementById('chatbot-container');
+            if (!chatbotContainer) {
+                chatbotContainer = document.createElement('div');
+                chatbotContainer.id = 'chatbot-container';
+                document.body.appendChild(chatbotContainer);
+            }
+            chatbotContainer.innerHTML = data;
+            
+            // Initialize chatbot functionality after loading the HTML
+            initializeChatbot();
+        })
+        .catch(error => {
+            console.error('Chatbot loading error:', error);
+        });
+}
+
 function updateActiveNavLink() {
     try {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -101,6 +125,32 @@ function updateActiveFooterLink() {
     } catch (error) {
         console.error('Error updating active footer link:', error);
     }
+}
+
+// Initialize chatbot functionality
+function initializeChatbot() {
+    const chatToggle = document.querySelector('.chat-toggle');
+    const chatBox = document.querySelector('.chat-box');
+    const closeChat = document.querySelector('.close-chat');
+    const sendBtn = document.querySelector('.send-btn');
+    const chatInput = document.getElementById('chat-input-field');
+    
+    if (!chatToggle || !chatBox || !closeChat || !sendBtn || !chatInput) {
+        console.error('Chatbot elements not found');
+        return;
+    }
+    
+    // Open chat box when chat toggle is clicked
+    chatToggle.addEventListener('click', () => {
+        chatBox.classList.add('active');
+        // Focus on input field when chat is opened
+        setTimeout(() => chatInput.focus(), 300);
+    });
+    
+    // Close chat box when close button is clicked
+    closeChat.addEventListener('click', () => {
+        chatBox.classList.remove('active');
+    });
 }
 
 // Add error handling for failed resource loading
