@@ -25,6 +25,27 @@
             position: relative;
             overflow-x: hidden;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        /* Custom scrollbar styling */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 4px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: rgba(211, 47, 47, 0.6);
+            border-radius: 4px;
+            border: 1px solid rgba(64, 64, 64, 0.3);
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(211, 47, 47, 0.8);
         }
 
         body::before {
@@ -59,6 +80,26 @@
             justify-content: space-between;
             overflow-y: auto;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        /* Container scrollbar styling */
+        .container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: rgba(100, 181, 246, 0.6);
+            border-radius: 3px;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: rgba(100, 181, 246, 0.8);
         }
 
         @keyframes fadeInUp {
@@ -301,6 +342,16 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding: 5px;
+                -webkit-overflow-scrolling: touch; /* Enhanced mobile scrolling */
+            }
+
+            body::-webkit-scrollbar {
+                width: 4px; /* Thinner on mobile */
+            }
+
             .main-content {
                 gap: 15px;
             }
@@ -310,6 +361,12 @@
                 max-height: none;
                 min-height: 95vh;
                 justify-content: flex-start;
+                margin: 5px 0;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .container::-webkit-scrollbar {
+                width: 4px; /* Thinner scrollbar on mobile */
             }
 
             .founder-details {
@@ -354,13 +411,15 @@
 
         @media (max-width: 480px) {
             body {
-                padding: 5px;
+                padding: 3px;
+                align-items: flex-start;
             }
 
             .container {
                 padding: 10px;
                 max-height: none;
                 min-height: auto;
+                margin: 2px 0;
             }
 
             h1 {
@@ -387,6 +446,25 @@
 
             .warning-icon {
                 font-size: 2em;
+            }
+        }
+
+        /* Mobile-specific scrollbar for touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            body {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(211, 47, 47, 0.6) rgba(26, 26, 26, 0.8);
+            }
+
+            .container {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(100, 181, 246, 0.6) rgba(0, 0, 0, 0.3);
+            }
+
+            /* Force scrollable area on mobile */
+            body, .container {
+                scroll-behavior: smooth;
+                overscroll-behavior: contain;
             }
         }
 
