@@ -61,13 +61,25 @@ function loadFooter() {
             return response.text();
         })
         .then(data => {
-            const footer = document.querySelector('footer');
-            footer.innerHTML = data;
-            updateActiveFooterLink();
+            const footer = document.querySelector('footer') || document.querySelector('#main-footer');
+            if (footer) {
+                footer.innerHTML = data;
+                // Make sure footer is visible
+                footer.style.display = 'block';
+                footer.style.visibility = 'visible';
+                footer.style.opacity = '1';
+                updateActiveFooterLink();
+                console.log('Footer loaded successfully');
+            } else {
+                console.error('Footer element not found in the document');
+            }
         })
         .catch(error => {
             console.error('Footer loading error:', error);
-            document.querySelector('footer').innerHTML = '<p>Footer failed to load</p>';
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.innerHTML = '<p>Footer failed to load</p>';
+            }
         });
 }
 

@@ -1,1 +1,47 @@
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Development files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+firebase-debug.html
 info.txt
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if you add Node.js later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Firebase cache
+.firebase/
+firebase-debug.log
+
+# Test files
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js

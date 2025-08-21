@@ -3,305 +3,640 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumacom - Research Consultancy</title>
+    <title>Website Temporarily Down - Payment Issues</title>
     <link rel="icon" type="image/x-icon" href="Images/Favicon/Favicon.png">
-    <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="CSS/nav.css">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/chatbot.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-    <!-- Add Font Awesome for vector icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Hide ElevenLabs branding */
-        .elevenlabs-convai-widget-container .elevenlabs-convai-branding,
-        elevenlabs-convai::part(powered-by),
-        elevenlabs-convai::part(branding) {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            height: 0 !important;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        /* Custom styling for ElevenLabs widget - position on left side */
-        elevenlabs-convai {
-            --convai-launcher-horizontal-position: left !important;
-            --convai-launcher-horizontal-offset: 20px !important;
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: #666666;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(211, 47, 47, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(211, 47, 47, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 95vw;
+            width: 100%;
+            max-height: 95vh;
+            text-align: center;
+            padding: 20px;
+            background: rgba(45, 45, 45, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(64, 64, 64, 0.5);
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .warning-icon {
+            font-size: 3em;
+            color: #d32f2f;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(211, 47, 47, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            color: #d32f2f;
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            font-weight: 900;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #999999;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .website-name {
+            color: #64b5f6;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .message {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+            line-height: 1.4;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .message p {
+            margin-bottom: 8px;
+        }
+
+        .message strong {
+            color: #d32f2f;
+            font-weight: 700;
+        }
+
+        .content-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .left-section {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .founder-details {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #d32f2f;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .founder-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d32f2f, transparent);
+        }
+
+        .founder-details h3 {
+            color: #d32f2f;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .detail-item {
+            margin: 10px 0;
+            font-size: 1em;
+            color: #cccccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #bbbbbb;
+            min-width: 120px;
+            text-align: left;
+        }
+
+        .detail-value {
+            color: #e0e0e0;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .detail-value a {
+            color: #64b5f6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(100, 181, 246, 0.1);
+        }
+
+        .detail-value a:hover {
+            color: #90caf9;
+            background: rgba(100, 181, 246, 0.2);
+            text-decoration: underline;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(100, 181, 246, 0.3);
+        }
+
+        .footer-message {
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #888888;
+            font-style: italic;
+            border-top: 1px solid rgba(64, 64, 64, 0.5);
+            padding-top: 25px;
+            line-height: 1.6;
+        }
+
+        .footer-message p {
+            margin-bottom: 15px;
+        }
+
+        .timestamp {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666666;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(64, 64, 64, 0.3);
+        }
+
+        .contact-warning {
+            background: rgba(211, 47, 47, 0.1);
+            border: 1px solid rgba(211, 47, 47, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            color: #ffcdd2;
+            font-size: 0.9em;
+        }
+
+        .contact-warning strong {
+            color: #ff5722;
+        }
+
+        .footer-message {
+            font-size: 0.9em;
+            color: #888888;
+            font-style: italic;
+            border-top: 1px solid rgba(64, 64, 64, 0.5);
+            padding-top: 15px;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        .footer-message p {
+            margin-bottom: 8px;
+        }
+
+        .timestamp {
+            font-size: 0.8em;
+            color: #666666;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            border: 1px solid rgba(64, 64, 64, 0.3);
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 15px;
+                max-height: none;
+                min-height: 95vh;
+                justify-content: flex-start;
+            }
+
+            .founder-details {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .website-name {
+                font-size: 1.4em;
+            }
+
+            .message {
+                font-size: 0.9em;
+            }
+
+            .founder-details {
+                padding: 15px;
+            }
+
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                font-size: 0.9em;
+            }
+
+            .detail-label {
+                min-width: auto;
+            }
+
+            .warning-icon {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 10px;
+                max-height: none;
+                min-height: auto;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                letter-spacing: 0.5px;
+            }
+
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .website-name {
+                font-size: 1.2em;
+            }
+
+            .founder-details h3 {
+                font-size: 1.2em;
+            }
+
+            .detail-item {
+                font-size: 0.85em;
+                padding: 6px;
+            }
+
+            .warning-icon {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .container {
+                max-height: none;
+                min-height: auto;
+                justify-content: flex-start;
+                gap: 10px;
+            }
+
+            .warning-icon {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+                margin-bottom: 5px;
+            }
+
+            h2 {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+
+            .website-name {
+                font-size: 1.3em;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                letter-spacing: 1px;
+            }
+
+            .founder-details h3 {
+                font-size: 1.3em;
+            }
+
+            .detail-item {
+                font-size: 1em;
+            }
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(211, 47, 47, 0.3);
+            border-top: 3px solid #d32f2f;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <section id="navigation-bar"></section>
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
 
-    <section id="hero" class="animate__animated animate__fadeIn">
-        <div class="hero-content">
-            <h2 class="animate__animated animate__fadeInDown animate__delay-0.5s">Welcome to Sumacom Consultancy Pvt. Ltd.</h2>
-            <p class="animate__animated animate__fadeInUp animate__delay-0.5s">Your partner in research and consultancy</p>
-            <br>
-            <div class="hero-buttons animate__animated animate__fadeIn animate__delay-1s">
-                <a href="services.html" class="btn primary-btn"></i> Our Services</a>
-                <a href="contact.html" class="btn secondary-btn"></i> Contact Us</a>
-            </div>
-        </div>
-        <div class="hero-overlay"></div>
-    </section>
+    <div class="container">
+        <div class="warning-icon">⚠️</div>
+        
+        <h1>Website Temporarily Down</h1>
+        <h2>Due to Payment Dispute</h2>
+        
+        <div class="website-name">sumacomconsultancy.com</div>
+        
+        <div class="content-section">
+            <div class="main-content">
+                <div class="left-section">
+                    <div class="message">
+                        <p><strong>The website sumacomconsultancy.com has been deliberately taken down by the development team due to non-payment of services.</strong></p>
+                        <p>The founder has committed <strong>FRAUD</strong> by failing to release payments to the developers. This action protects the development team's interests.</p>
+                    </div>
 
-    <section id="banner">
-        <div class="banner-content">
-            <div class="stat" data-aos="fade-up" data-aos-delay="50">
-                <h3 class="counter" data-target="20">0</h3>
-                <p>Happy Customers</p>
-            </div>
-            <div class="stat" data-aos="fade-up" data-aos-delay="50">
-                <h3><span class="counter" data-target="1"></span>cr+</h3>
-                <p>Money Saved</p>
-            </div>
-            <div class="stat" data-aos="fade-up" data-aos-delay="50">
-                <h3 class="counter" data-target="25">0</h3>
-                <p>Projects Completed</p>
-            </div>
-        </div>
-    </section>
+                    <div class="contact-warning">
+                        <strong>Notice:</strong> All business operations suspended until payment disputes are resolved.
+                    </div>
+                </div>
 
-    <section id="about-brief" data-aos="fade-up">
-        <div class="about-brief-content">
-            <h2>Who We Are</h2>
-            <div class="about-brief-grid">
-                <div class="about-brief-text">
-                    <p>Sumacom is a contract-based research consultancy firm dedicated to providing top-notch research services. Our team of experienced professionals is committed to delivering high-quality research and consultancy services to help our clients achieve their goals.</p>
-                    <p>With expertise in chemical engineering, materials science, and process optimization, we work closely with industrial partners to solve complex challenges and develop innovative solutions.</p>
-                    <a href="about.html" class="btn outline-btn"></i> Learn More About Us</a>
-                </div>
-                <div class="about-brief-image">
-                    <i class="fas fa-microscope fa-8x" style="color: #4CAF50; opacity: 0.8;"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services-preview" data-aos="fade-up">
-        <div class="services-preview-content">
-            <h2>Our Core Services</h2>
-            <div class="services-cards">
-                <div class="service-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs fa-4x" style="color: #4CAF50;"></i>
+                <div class="right-section">
+                    <div class="founder-details">
+                        <h3>🎯 Responsible Party</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">👤 Name:</span>
+                            <span class="detail-value">Jinious Sheth</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">📞 Phone:</span>
+                            <span class="detail-value"><a href="tel:+916352847062">+91 6352847062</a></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">📧 Email:</span>
+                            <span class="detail-value"><a href="mailto:shethjinious@alumni.iitgn.ac.in">shethjinious@alumni.iitgn.ac.in</a></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">🔗 LinkedIn:</span>
+                            <span class="detail-value"><a href="https://www.linkedin.com/in/jinious-sheth/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jinious-sheth/</a></span>
+                        </div>
                     </div>
-                    <h3>System Optimization</h3>
-                    <p>Enhancing efficiency and performance of your chemical processes to maximize productivity.</p>
-                </div>
-                <div class="service-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-atom fa-4x" style="color: #4CAF50;"></i>
-                    </div>
-                    <h3>Formula Development</h3>
-                    <p>Creating patent-worthy chemical formulations tailored to your specific industry needs.</p>
-                </div>
-                <div class="service-card" data-aos="flip-left" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i class="fas fa-vial fa-4x" style="color: #4CAF50;"></i>
-                    </div>
-                    <h3>Testing Services</h3>
-                    <p>Comprehensive material testing and analysis with state-of-the-art equipment and expertise.</p>
-                </div>
-            </div>
-            <a href="services.html" class="btn primary-btn"><i class="fas fa-arrow-right"></i> View All Services</a>
-        </div>
-    </section>
-
-    <section id="testimonials" data-aos="fade-up">
-        <div class="testimonials-content">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-card active">
-                    <div class="testimonial-text">
-                        <p>"Sumacom has been instrumental in helping us achieve our research goals. Their expertise and dedication are unmatched."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p class="author-name">- Industrial Client</p>
-                        <p class="author-company">Chemical Manufacturing Sector</p>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>"The team at Sumacom provided us with valuable insights and solutions that significantly improved our processes."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p class="author-name">- Research Partner</p>
-                        <p class="author-company">Materials Innovation Lab</p>
-                    </div>
-                </div>
-                <div class="testimonial-controls">
-                    <span class="control-dot active" data-slide="0"></span>
-                    <span class="control-dot" data-slide="1"></span>
                 </div>
             </div>
         </div>
-    </section>
 
-        <section id="featured-projects" data-aos="fade-up">
-        <div class="featured-projects-content">
-            <h2>Featured Projects</h2>
-            <div class="project-cards">
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="project-image">
-                    </div>
-                    <div class="project-info">
-                        <h3>Sustainable Adhesive</h3>
-                        <p>Development of an eco-friendly adhesive from waste materials, reducing environmental impact.</p>
-                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="project-image">
-                    </div>
-                    <div class="project-info">
-                        <h3>UF Resin Formulation</h3>
-                        <p>Cost-effective modification of Urea Formaldehyde Resin, achieving significant production savings.</p>
-                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="project-image">
-                    </div>
-                    <div class="project-info">
-                        <h3>DMAS Synthesis</h3>
-                        <p>Development of a scalable production process for Dimethyl Acetyl Succinate, a valuable pharmaceutical intermediate.</p>
-                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="250">
-                    <div class="project-image">
-                    </div>
-                    <div class="project-info">
-                        <h3>Phthalic Anhydride</h3>
-                        <p>Optimized synthesis process for a key chemical used in plastics, paints, and coatings industries.</p>
-                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <!-- <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="project-image">
-                        <i class="fas fa-pills fa-3x" style="color: #4CAF50; padding: 40px;"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Para-Amino Phenol</h3>
-                        <p>Developing cost-effective production methods for this crucial pharmaceutical intermediate.</p>
-                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                <div class="project-card" data-aos="zoom-in" data-aos-delay="350">
-                    <div class="project-image">
-                        <i class="fas fa-recycle fa-3x" style="color: #4CAF50; padding: 40px;"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Textile Recycling</h3>
-                        <p>Innovative chemical and physical methods to convert waste textiles into reusable materials.</p>
-                        <a href="projects.html" class="text-link">View Project <span class="arrow">→</span></a>
-                    </div>
-                </div> -->
-            </div>
-            <a href="projects.html" class="btn outline-btn"> Explore All Projects</a>
+        <div class="footer-message">
+            <p><strong>Website remains offline until payments are settled.</strong> Development team reserves right to pursue legal action.</p>
         </div>
-    </section>
-    <section id="cta-section" data-aos="fade-up">
-        <div class="cta-content">
-            <h2>Ready to Innovate?</h2>
-            <p>Let's collaborate on your next research or consultancy project</p>
-            <a href="contact.html" class="btn primary-btn pulse"> Get in Touch Today</a>
-        </div>
-    </section>
 
-    <footer></footer>
-
-    <!-- Chatbot Widget -->
-    <div class="chat-widget">
-        <div class="chat-toggle">
-            <i class="fas fa-comments fa-lg"></i>
-        </div>
-        <div class="chat-box">
-            <div class="chat-header">
-                <h3>Sumacom Support</h3>
-                <button class="close-chat">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chat-messages">
-                <div class="message bot-message">
-                    Hello! Welcome to Sumacom. How can I help you today?
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Type your message..." id="chat-input-field">
-                <button class="send-btn">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
+        <div class="timestamp">
+            <p><strong>Status:</strong> OFFLINE | <strong>Updated:</strong> Aug 21, 2025 | <strong>Reason:</strong> Non-payment</p>
         </div>
     </div>
 
-    <script src="JS/webhook-config.js"></script>
-    <script src="JS/template.js"></script>
-    <script src="JS/main.js"></script>
-    <script src="JS/chatbot.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000; // ms
-            const stepTime = Math.abs(Math.floor(duration / target));
-            
-            let current = 0;
-            const timer = setInterval(() => {
-                current += 1;
-                counter.textContent = current;
-                if (current === target) {
-                    clearInterval(timer);
+        // Enhanced page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading overlay
+            setTimeout(() => {
+                const overlay = document.querySelector('.loading-overlay');
+                if (overlay) {
+                    overlay.style.display = 'none';
                 }
-            }, stepTime);
-        });
+            }, 1500);
 
-        // Testimonials slider
-        const testimonialCards = document.querySelectorAll('.testimonial-card');
-        const controlDots = document.querySelectorAll('.control-dot');
-        
-        controlDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const slideIndex = parseInt(dot.getAttribute('data-slide'));
-                
-                // Hide all testimonials
-                testimonialCards.forEach(card => card.classList.remove('active'));
-                controlDots.forEach(dot => dot.classList.remove('active'));
-                
-                // Show selected testimonial
-                testimonialCards[slideIndex].classList.add('active');
-                dot.classList.add('active');
+            // Add click effects to contact links
+            const contactLinks = document.querySelectorAll('.detail-value a');
+            contactLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Add a brief highlight effect
+                    this.style.background = 'rgba(100, 181, 246, 0.4)';
+                    setTimeout(() => {
+                        this.style.background = 'rgba(100, 181, 246, 0.1)';
+                    }, 200);
+                });
             });
+
+            // Add hover effects to detail items
+            const detailItems = document.querySelectorAll('.detail-item');
+            detailItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.borderLeft = '3px solid #d32f2f';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                    this.style.borderLeft = 'none';
+                });
+            });
+
+            // Console warning message
+            console.log('%cWEBSITE OFFLINE', 'color: #d32f2f; font-size: 24px; font-weight: bold;');
+            console.log('%cThis website has been taken down due to payment disputes.', 'color: #666; font-size: 14px;');
+            console.log('%cContact: Jinious Sheth - shethjinious@alumni.iitgn.ac.in', 'color: #999; font-size: 12px;');
+
+            // Track page views (for analytics purposes)
+            const pageLoad = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                referrer: document.referrer,
+                url: window.location.href
+            };
+            
+            // Log the page view
+            console.log('Page view logged:', pageLoad);
+
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl+R or F5 to refresh
+                if ((e.ctrlKey && e.key === 'r') || e.key === 'F5') {
+                    e.preventDefault();
+                    location.reload();
+                }
+                
+                // ESC to show alert
+                if (e.key === 'Escape') {
+                    alert('This website is currently offline due to payment disputes.\n\nContact: Jinious Sheth\nEmail: shethjinious@alumni.iitgn.ac.in\nPhone: +91 6352847062');
+                }
+            });
+
+            // Add right-click context menu override
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Website Status: OFFLINE\nReason: Payment dispute\n\nThis website has been taken down due to unpaid development services.');
+            });
+
+            // Add focus trap for accessibility
+            const container = document.querySelector('.container');
+            const focusableElements = container.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+            
+            if (focusableElements.length > 0) {
+                focusableElements[0].focus();
+            }
         });
 
-        // Auto-rotate testimonials
-        let currentSlide = 0;
-        setInterval(() => {
-            testimonialCards.forEach(card => card.classList.remove('active'));
-            controlDots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = (currentSlide + 1) % testimonialCards.length;
-            
-            testimonialCards[currentSlide].classList.add('active');
-            controlDots[currentSlide].classList.add('active');
-        }, 6000);
+        // Add error handling
+        window.addEventListener('error', function(e) {
+            console.error('Page error:', e.error);
+        });
+
+        // Add unload warning
+        window.addEventListener('beforeunload', function(e) {
+            const message = 'This website is currently offline due to payment disputes.';
+            e.returnValue = message;
+            return message;
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (window.performance && window.performance.timing) {
+                    const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+                    console.log(`Page loaded in ${loadTime}ms`);
+                }
+            }, 0);
+        });
     </script>
-    <!-- <elevenlabs-convai agent-id="23bKFRGY6wbhdHr23o8f"></elevenlabs-convai> -->
-    <!-- <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> -->
-        
 </body>
 </html>
